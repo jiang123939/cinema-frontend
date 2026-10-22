@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Movie List</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #ffffff; }
+        h1 { color: #333; }
+        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .movie-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center; cursor: pointer; background: #f9f9f9; transition: transform 0.2s; }
+        .movie-card:hover { transform: translateY(-5px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .movie-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 4px; margin-bottom: 10px; }
+        .movie-card h3 { margin: 10px 0 5px; font-size: 18px; color: #222; }
+        .movie-card p { color: #666; font-size: 14px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>Now Showing</h1>
+    <div class="movie-grid" id="movieList"></div>
+
+    <script>
+        // 模拟后端返回的数据 (换成了绝对稳定的占位图)
+        const mockMovies = [
+            { id: 1, title: "Interstellar", poster: "https://dummyimage.com/200x300/333/fff&text=Interstellar", releaseDate: "2024-02-10", duration: 120 },
+            { id: 2, title: "Inception", poster: "https://dummyimage.com/200x300/333/fff&text=Inception", releaseDate: "2024-03-15", duration: 130 },
+            { id: 3, title: "The Dark Knight", poster: "https://dummyimage.com/200x300/333/fff&text=The+Dark+Knight", releaseDate: "2024-04-20", duration: 140 }
+        ];
+
+        // 获取容器
+        const container = document.getElementById('movieList');
+
+        // 循环渲染卡片
+        mockMovies.forEach(movie => {
+            const card = document.createElement('div');
+            card.className = 'movie-card';
+            
+            // 注意：<img> 标签中间没有任何多余的空格
+            card.innerHTML = `
+                <img src="${movie.poster}" alt="${movie.title}">
+                <h3>${movie.title}</h3>
+                <p>Release: ${movie.releaseDate}</p >
+                <p>Duration: ${movie.duration} min</p >
+            `;
+            
+            // 点击跳转逻辑
+            card.onclick = () => { 
+                window.location.href = `detail.html?id=${movie.id}`; 
+            };
+            
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>

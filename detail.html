@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Detail</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 40px; max-width: 800px; margin: auto; background-color: #ffffff; }
+        .detail-container { display: flex; gap: 30px; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background: #f9f9f9;}
+        .poster img { width: 250px; height: 350px; object-fit: cover; border-radius: 8px; }
+        .info h1 { margin-top: 0; color: #333; }
+        .info p { color: #555; line-height: 1.6; font-size: 16px;}
+    </style>
+</head>
+<body>
+    <a href=" ">← Back to Home</a >
+    <div class="detail-container">
+        <div class="poster">
+            <img src="https://dummyimage.com/250x350/333/fff&text=Movie+Poster" alt="Poster">
+        </div>
+        <div class="info">
+            <h1 id="movieTitle">Loading...</h1>
+            <p id="movieMeta">Loading...</p >
+            <p id="movieDesc">Loading...</p >
+        </div>
+    </div>
+
+    <script>
+        const movieData = { 
+            "1": { title: "Interstellar", date: "2024-02-10", duration: 120, desc: "Sci-Fi movie about space travel." }
+        };
+        const params = new URLSearchParams(window.location.search);
+        const movieId = params.get('id') || "1";
+        const movie = movieData[movieId];
+        document.getElementById('movieTitle').innerText = movie.title;
+        document.getElementById('movieMeta').innerText = `Release: ${movie.date} | Duration: ${movie.duration} min`;
+        document.getElementById('movieDesc').innerText = movie.desc;
+    </script>
+</body>
+</html>

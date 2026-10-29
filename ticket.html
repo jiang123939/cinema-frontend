@@ -7,7 +7,11 @@
         body { font-family: Arial, sans-serif; text-align: center; padding: 40px; }
         .screen { background: #333; height: 30px; width: 60%; margin: 0 auto 30px; text-align: center; line-height: 30px; color: #fff; font-weight: bold; border-radius: 5px; }
         .seat-grid { display: grid; grid-template-columns: repeat(8, 40px); gap: 10px; justify-content: center; margin-bottom: 30px; }
-        .seat { width: 40px; height: 40px; border: 1px solid #333; border-radius: 5px; cursor: pointer; line-height: 40px;}
+        .seat { width: 40px; height: 40px; border: 1px solid #333; border-radius: 5px; cursor: pointer; line-height: 40px; transition: transform 0.2s; }
+        
+        /* 今天新增的代码：鼠标悬停时微微放大 */
+        .seat:hover { transform: scale(1.15); border-color: #4CAF50; }
+        
         .seat.selected { background-color: #4CAF50; color: white; border-color: #4CAF50;}
         button { padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;}
     </style>

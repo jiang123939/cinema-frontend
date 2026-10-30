@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Checkout</title>
+    <!-- 今天修改的地方1：优化了网页标题 -->
+    <title>Checkout - Cinema.International</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 40px; max-width: 500px; margin: auto; }
         .form-group { margin-bottom: 15px; }
         label { font-weight: bold; }
         input { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px;}
-        button { width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;}
-        button:hover { background: #555; }
+        button { width: 100%; padding: 10px; background: #333; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s; }
+        
+        /* 今天修改的地方2：增加了按钮悬停变色的过渡动画 */
+        button:hover { background: #4CAF50; }
     </style>
 </head>
 <body>
@@ -30,7 +33,7 @@
                 return;
             }
             alert(`Success! Order submitted for ${name}.`);
-            window.location.href = 'home.html'; // 提交成功后跳回首页
+            window.location.href = 'home.html'; 
         }
     </script>
 </body>
